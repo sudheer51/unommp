@@ -58,7 +58,7 @@ public class PAT005_RegisterPatientTests extends BaseClass {
 		String ssq = "what is your pet name";
 		expHashMAP.put("SecurityQns", ssq );
 		System.out.println(expHashMAP);
-		String expsuccmsg = "Thank you for registering with MMP." ;
+		String expsuccmsg = "Thank you for registering with MMP. " ;
 		String actsuccmsg = rp.personalDetails(expHashMAP);
 		Assert.assertEquals(actsuccmsg, expsuccmsg);
 }
