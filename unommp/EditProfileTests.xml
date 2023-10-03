@@ -6,6 +6,9 @@
   <parameter name="password" value="Ria12345" />
     <classes>
       <class name="org.iitwforce.healthcare.tests.PAT_003_EditProfileTests"/>
+
+    
+    
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
