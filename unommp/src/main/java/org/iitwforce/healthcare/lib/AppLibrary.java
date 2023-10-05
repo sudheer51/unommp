@@ -45,7 +45,7 @@ public class AppLibrary {
 	public static String randomInteger() {
 		Random rand = new Random();
 		String str = "";
-		int value = 48+rand.nextInt(2);
+		int value = 48+rand.nextInt(10);
 		char digit1 = (char)value;
 			
 		value = 48+rand.nextInt(10);
