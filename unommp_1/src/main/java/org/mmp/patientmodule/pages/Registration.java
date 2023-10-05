@@ -2,7 +2,7 @@ package org.mmp.patientmodule.pages;
 import java.util.HashMap;
 import org.iitwforce.healthcare.lib.AppLibrary;
 import org.iitwforce.healthcare.lib.BaseClass;
-//import org.iitwforce.healthcare.lib.MMPLibrary;
+import org.iitwforce.healthcare.lib.MMPLibrary;
 //import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,12 +15,12 @@ public Registration(WebDriver driver)
 {
 	this.driver=driver;
 }
-@Test
+
 public HashMap<String,String> patientRegistration()
 {
 	HashMap<String,String> expectedHmap = new HashMap<String,String>();
-	//MMPLibrary obj = new MMPLibrary(driver);
-	//obj.launchApplication(prop.getProperty("URL"));
+	MMPLibrary obj = new MMPLibrary(driver);
+	obj.launchApplication(prop.getProperty("URL"));
 	driver.findElement(By.xpath("//input[@type='button']")).click();//Register
 	String fname = "fname"+AppLibrary.randomString();
 	driver.findElement(By.xpath("//input[@name='fname']")).sendKeys(fname);
@@ -34,8 +34,8 @@ public HashMap<String,String> patientRegistration()
 	int license = AppLibrary.randomInteger(12345654,56765478);
 	driver.findElement(By.xpath("//input[@id='license']")).sendKeys(String.valueOf(license));
 	expectedHmap.put("License", String.valueOf(license));
-    int SSN = AppLibrary.randomInteger(154568876,567776576);
-    driver.findElement(By.xpath("//input[@placeholder='SSN']")).sendKeys(String.valueOf(SSN));
+        int SSN = AppLibrary.randomInteger(154568876,567776576);
+        driver.findElement(By.xpath("//input[@placeholder='SSN']")).sendKeys(String.valueOf(SSN));
 	expectedHmap.put("SSN", String.valueOf(SSN));
 	String state= "Washington"+AppLibrary.randomString();
 	driver.findElement(By.xpath("//input[@name='state']")).sendKeys(state);
@@ -83,7 +83,7 @@ public HashMap<String,String> patientRegistration()
 	driver.findElement(By.xpath("//input[@id='answer']")).sendKeys(ans);
 	expectedHmap.put("ANS", ans);
 	driver.findElement(By.xpath("//input[@value='Save']")).click();
-	//obj.handleAlert();
+	obj.handleAlert();
 	return expectedHmap;
   }
 
