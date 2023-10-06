@@ -13,39 +13,32 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class SendMessagesE2ETests extends BaseClass {
-	 	 
-		@Test
+	 	 @Test
 		public void validateSendMessages()
 		{
-
 			MMPLibrary mmpLib = new MMPLibrary(driver);
 			mmpLib.launchApplication(prop.getProperty("patientURL"));
 			LoginPage patientLogin = new LoginPage(driver);
 			patientLogin.login(prop.getProperty("patientUserName"),prop.getProperty("patientPassword"));
 			mmpLib.navigation("Messages");
 			MessagesPage patientMessages = new MessagesPage(driver);
-			String reason="Having Cold";//parameter 1
+			String reason="Fever and cold";//parameter 1
 			String subject="To meet doctor Charlie";//parameter 2 
 			String actual = patientMessages.sendMessages(reason,subject);
 			String expected ="Messages Successfully sent.";
-		 
-			mmpLib.navigation("Profile");
+		 	mmpLib.navigation("Profile");
 			EditProfilePage editProfilePage = new EditProfilePage(driver);
 			//Fetch the patient name-3
 			String patientFirstName= editProfilePage.fetchPatientFirstName();
-			
 			//Date - 4
-			String date = AppLibrary.getfutureDate(0, "dd-MM-yyyy");
-			
+			String date = AppLibrary.getfutureDate(0,"dd-MM-yyyy");
 			HashMap<String,String> expectedHMap =  new HashMap<String,String>();//2 values
-			expectedHMap.put("reason", reason);
-			expectedHMap.put("subject",subject );
-			expectedHMap.put("fName", patientFirstName);
-			expectedHMap.put("date",date );
-			
+			expectedHMap.put("Reason", reason);
+			expectedHMap.put("Subject",subject );
+			expectedHMap.put("PtName", patientFirstName);
+			expectedHMap.put("Date",date );
 			SoftAssert sa =new SoftAssert();
 			sa.assertEquals(actual,expected);
-			
 			
 			//Login to Admin Module
 			mmpLib.launchApplication(prop.getProperty("adminURL"));
@@ -54,10 +47,10 @@ public class SendMessagesE2ETests extends BaseClass {
 			mmpLib.navigation("Messages");
 			org.mmp.adminmodule.pages.MessagesPage adminMessages = new org.mmp.adminmodule.pages.MessagesPage(driver);
 			HashMap<String,String> actualHMap = adminMessages.fetchMessageDetails();//4 values
+			mmpLib.navigation("HOME");
 			sa.assertEquals(expectedHMap,actualHMap);
-			
+			System.out.println(expectedHMap);
+			System.out.println(actualHMap);
 			sa.assertAll();
-			
-		}
-
+			}
 }
