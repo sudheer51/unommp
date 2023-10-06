@@ -47,7 +47,6 @@ public class SendMessagesE2ETests extends BaseClass {
 			mmpLib.navigation("Messages");
 			org.mmp.adminmodule.pages.MessagesPage adminMessages = new org.mmp.adminmodule.pages.MessagesPage(driver);
 			HashMap<String,String> actualHMap = adminMessages.fetchMessageDetails();//4 values
-			mmpLib.navigation("HOME");
 			sa.assertEquals(expectedHMap,actualHMap);
 			System.out.println(expectedHMap);
 			System.out.println(actualHMap);
