@@ -44,7 +44,7 @@ public class PAT005_RegisterPatientTests extends BaseClass {
 		expHashMAP.put("SSN", ssnRandomint);
 		String ageRandomint = AppLibrary.randomInteger();
 		expHashMAP.put("Age", ageRandomint);
-		String weightRandomint = "1"+AppLibrary.randomInteger();
+		String weightRandomint = mmplib.randomPTweight();
 		expHashMAP.put("Weight", weightRandomint);
 		String heightRandomint = "2"+mmplib.randomPTheight();
 		expHashMAP.put("Height", heightRandomint);
