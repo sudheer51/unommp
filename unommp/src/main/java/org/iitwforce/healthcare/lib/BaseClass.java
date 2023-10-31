@@ -6,6 +6,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -28,6 +29,12 @@ public class BaseClass {
 			options.addArguments("--start-maximized");
 			driver = new ChromeDriver(options);
 		}
-		
 	}
+		@AfterClass
+		public void tearDown() {
+
+			driver.quit();
+		}
+		
+
 }
