@@ -37,9 +37,9 @@ public class PAT_003_EditProfileTests extends BaseClass {
 		sa.assertAll();
 
 	}
-	@Parameters({"username","password"})
+	//@Parameters({"username","password"})
 	@Test
-	public void validateAllFields(String username,String password)
+	public void validateAllFields()
 	{
 		HashMap<String,String> expectedHMap = new HashMap<String,String>();
 		MMPLibrary mmpLib = new MMPLibrary(driver);
