@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+         stage('UNO_FREE_STYLE') {
+            steps {
+                 bat '''dir
+                        cls
+                        ping www.google.com -n 5'''
+            }
+        }
+          stage('UNO_SELENIUM_TESTS') {
+            steps {
+               git 'https://github.com/sudheer51/unommp'
+               dir('unommp') {
+                       bat 'mvn clean test'
+                }
+            }
+        }
+        
+    }
+}
