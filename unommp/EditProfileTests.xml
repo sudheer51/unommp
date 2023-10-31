@@ -5,7 +5,7 @@
   <parameter name="username" value="ria1" />
   <parameter name="password" value="Ria12345" />
     <classes>
-      <class name="org.iitwforce.healthcare.tests.PAT_003_EditProfileTests"/>
+      <class name="org.mmp.patientmodule.tests.PAT_003_EditProfileTests"/>
 
     
     
