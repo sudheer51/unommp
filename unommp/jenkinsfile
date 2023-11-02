@@ -16,9 +16,9 @@ pipeline {
         }
           stage('UNO_SELENIUM_TESTS') {
             steps {
-               git 'https://github.com/sudheer51/unommp'
-               dir('unommp') {
-                       bat 'mvn clean test'
+	               git 'https://github.com/sudheer51/unommp'
+	               dir('unommp') {
+	                       bat 'mvn clean test'
                 }
             }
         }

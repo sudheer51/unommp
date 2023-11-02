@@ -1,6 +1,7 @@
 package org.mmp.patientmodule.tests;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.iitwforce.healthcare.lib.AppLibrary;
@@ -72,5 +73,20 @@ public class PAT_003_EditProfileTests extends BaseClass {
 		System.out.println(param1 + "--" +param2+"--"+param3);
 		
 	}
+	
+	@DataProvider(name = "mysqlDP")
+	public String[][] feedSQLDP() throws IOException, ClassNotFoundException, SQLException
+	{
+		 String data[][] = AppLibrary.getDBValues("root","root","mmp","localhost");
+		 return data;
+	}
+	@Test(dataProvider="mysqlDP")
+	public void editProfileDB(String param1,String param2,String param3)
+	{
+		
+		System.out.println(param1 + "--" +param2+"--"+param3);
+		
+	}
+
 
 }
