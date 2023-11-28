@@ -48,17 +48,31 @@ public class AppLibrary {
 			return str+upperCaseCh+lowerCaseCh;
 	}
 	
-	public static String randomInteger() {
-		Random rand = new Random();
-		String str = "";
-		int value = 48+rand.nextInt(2);
-		char digit1 = (char)value;
-			
-		value = 48+rand.nextInt(10);
-		char digit2 = (char)value;
-		
-		return str+digit1+digit2;
-	}	
+	public static String randomTwoDigitNumber() {
+
+		String num = "";
+		Random rnd = new Random();
+		int n = 18 + rnd.nextInt(82);
+		return num + n;
+
+	}
+
+	public static String randomLicNumber() {
+		String num = "";
+		Random rnd = new Random();
+		int n = 10000000 + rnd.nextInt(29999999);
+		return num + n;
+
+	}
+
+	public static String randomSsnNumber() {
+		String num = "";
+		Random rnd = new Random();
+		int n = 100000000 + rnd.nextInt(900000000);
+		return num + n;
+
+	}
+
 	
 	public static String[][] readXLSX(String fileName) throws IOException
 	{
