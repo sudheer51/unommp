@@ -1,5 +1,6 @@
 package org.mmp.patientmodule.tests;
 
+import java.awt.AWTException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import org.testng.asserts.SoftAssert;
 public class PAT_003_EditProfileTests extends BaseClass {
  
 	@Test
-	public void validateEditFName()
+	public void validateEditFName() throws IOException, AWTException
 	{
 
 		MMPLibrary mmpLib = new MMPLibrary(driver);
@@ -26,6 +27,7 @@ public class PAT_003_EditProfileTests extends BaseClass {
 		LoginPage lPage = new LoginPage(driver);
 		lPage.login(prop.getProperty("patientUserName"),prop.getProperty("patientPassword"));
 		mmpLib.navigation("Profile");
+		mmpLib.captureFullScreenshot("EditProfilePage");
 		String expected="FName"+AppLibrary.randomString();
 		EditProfilePage editProfilePage = new EditProfilePage(driver);
 		String actual = editProfilePage.editFirstName(expected);
